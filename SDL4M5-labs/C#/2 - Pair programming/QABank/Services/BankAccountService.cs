@@ -1,13 +1,15 @@
-﻿namespace QABank
+﻿using QABank.Interfaces;
+
+namespace QABank
 {
-    public class BankAccount
+    public class BankAccountService : IBankAccountService
     {
         public string CustomerName { get; set; }
         public int? AccountNumber { get; set; }
         public decimal Balance { get; set; }
 
         public static int newAccountNumber = 100000;
-        public BankAccount(string customerName, decimal balance, int? accountNumber = null)
+        public BankAccountService(string customerName, decimal balance, int? accountNumber = null)
         {
             CustomerName = customerName;
             AccountNumber = accountNumber ?? GenerateAccountNumber();
