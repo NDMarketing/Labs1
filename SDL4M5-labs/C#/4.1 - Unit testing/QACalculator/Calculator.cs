@@ -16,6 +16,9 @@ namespace QACalculator
             if (!n1.Contains(","))
                 separator = Utils.ValidSeperator(n1);    // slows down test
             String[] numbers = n1.Split(separator);
+
+            if (numbers.Length < 2 ) return result;
+
             foreach (String number in numbers)
             {
                 if (!Utils.IsNumeric(number))
@@ -31,6 +34,8 @@ namespace QACalculator
         {
             int result = -9999;
             String[] numbers = n1.Split(',');
+            if (numbers.Length < 2) return result;
+
             foreach (String number in numbers)
             {
                 if (!Utils.IsNumeric(number))
@@ -45,8 +50,10 @@ namespace QACalculator
         public int Subtract(String n1)
         {
             int result = -9999;
-
             String[] numbers = n1.Split(',');
+
+            if (numbers.Length < 2) return result;
+
             foreach (String number in numbers)
             {
                 if (!Utils.IsNumeric(number))
