@@ -74,23 +74,16 @@ namespace UnitTests
         [TestCase("10 2", 8, "Subtract")]
         [TestCase("10 2", 5, "Divide")]
         [TestCase("10 2", 20, "Multiply")]
-        public void MissingComma_shouldReturnExpectedValue(string input, int expectedResult, string method)
+        public void MissingComma_ShouldReturnExpectedValue(string input, int expectedResult, string method)
         {
-            int result = 0;
-
-            switch (method)
+            var methodMap = new Dictionary<string, Func<string, int>>
             {
-                case "Subtract":
-                    result = calculator.Subtract(input);
-                    break;
-                case "Divide":
-                    result = calculator.Divide(input);
-                    break;
-                case "Multiply":
-                    result = calculator.Multiply(input);
-                    break;
-            }
+                { "Subtract", calculator.Subtract },
+                { "Divide", calculator.Divide },
+                { "Multiply", calculator.Multiply }
+            };
 
+            int result = methodMap[method](input);
             Assert.AreEqual(expectedResult, result);
         }
 
