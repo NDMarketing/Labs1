@@ -1,24 +1,38 @@
 ﻿using NUnit.Framework;
 using QACalculator;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UnitTests
 {
     [TestFixture]
     public class CalculatorTests
     {
-        public CalculatorTests()
-        {
 
+        [Test]
+        public void AddTest_ShouldReturnZero_IfStringEmpty()
+        {
+            var calculator = new Calculator();
+            int expectedResult = 0;
+            int actual = calculator.Add("");
+            Assert.AreEqual(expectedResult, actual);
         }
 
-        ~CalculatorTests()
+        [Test]
+        public void AddTest_ShouldReturnParsedNumber_IfStringIsJustANumber()
         {
+            var calculator = new Calculator();
+            int expectedResult = 5;
+            int actual = calculator.Add("5");
+            Assert.AreEqual(expectedResult, actual);
+        }
 
+        [Test]
+        public void AddTest_ShouldReturnCorrectValue_IfStringIsTwoNUmbersSeperatedByAComma()
+        {
+            var calculator = new Calculator();
+            int expectedResult = 12;
+            int actual = calculator.Add("5,7");
+            Assert.AreEqual(expectedResult, actual);
         }
 
         [Test]

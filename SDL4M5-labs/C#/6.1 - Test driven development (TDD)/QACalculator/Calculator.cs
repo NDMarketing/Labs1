@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,39 @@ namespace QACalculator
 {
     public class Calculator
     {
+
+        //public int Add(String n1)
+        //{
+        //    // check string empty
+        //    if (n1 == "") return 0;
+
+        //    // split by comma
+        //    var seperatedNumbers = n1.Split(',');
+
+        //    // if only 1 number, return number
+        //    if(seperatedNumbers.Length < 1)
+        //    {
+        //        return int.Parse(n1);
+        //    }
+
+        //    // parse all seperated numbers into numbers and add to a number array
+        //    var parsedNumberArray = new List<int>();
+        //    foreach (var seperatednumber in seperatedNumbers)
+        //    {
+        //        parsedNumberArray.Add(int.Parse(seperatednumber));
+        //    }
+
+        //    // return them added together
+        //    return parsedNumberArray[0] + parsedNumberArray[1];
+        //}
+
+        public int Add(String n1)
+        {
+            if(n1 == "") return 0;
+
+            return 1;
+        }
+
         public int Divide(String n1)
         {
             int result = -9999;
