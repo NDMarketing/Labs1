@@ -17,8 +17,8 @@ namespace QACalculator
 
         public static bool IsNumeric(String str)
         {
-            var exp = new Regex("[+-]?\\d*(\\.\\d+)?");
-            return exp.IsMatch(str);
+            var result = int.TryParse(str, out _);
+            return result;
         }
 
         // Example of a slow method
@@ -27,13 +27,6 @@ namespace QACalculator
             int index = 0;
             while (char.IsDigit(s[index]))
                 index++;
-            try
-            {
-                Thread.Sleep(1000);
-            }
-            catch (Exception)
-            {
-            }
             return s[index];
         }
     }

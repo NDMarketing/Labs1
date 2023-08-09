@@ -30,7 +30,12 @@ namespace QACalculator
         public int Multiply(String n1)
         {
             int result = -9999;
-            String[] numbers = n1.Split(',');
+
+            char separator = ',';
+            // if doesn't contain a comma call this
+            if (!n1.Contains(","))
+                separator = Utils.ValidSeperator(n1);
+            String[] numbers = n1.Split(separator);
             foreach (String number in numbers)
             {
                 if (!Utils.IsNumeric(number))
@@ -45,8 +50,11 @@ namespace QACalculator
         public int Subtract(String n1)
         {
             int result = -9999;
-
-            String[] numbers = n1.Split(',');
+            char separator = ',';
+            // if doesn't contain a comma call this
+            if (!n1.Contains(","))
+                separator = Utils.ValidSeperator(n1);
+            String[] numbers = n1.Split(separator);
             foreach (String number in numbers)
             {
                 if (!Utils.IsNumeric(number))
