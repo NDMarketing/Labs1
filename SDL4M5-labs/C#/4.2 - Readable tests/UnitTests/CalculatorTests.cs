@@ -20,6 +20,30 @@ namespace UnitTests
         }
 
         [Test]
+        [TestCase("10,abc", -9999, "Subtract")]
+        [TestCase("10,abc", -9999, "Divide")]
+        [TestCase("10,abc", -9999, "Multiply")]
+        public void InvalidString_ShouldReturnMinus9999ForAllMethods(string input, int expectedResult, string method)
+        {
+            int result = 0;
+
+            switch (method)
+            {
+                case "Subtract":
+                    result = calculator.Subtract(input);
+                    break;
+                case "Divide":
+                    result = calculator.Divide(input);
+                    break;
+                case "Multiply":
+                    result = calculator.Multiply(input);
+                    break;
+            }
+
+            Assert.AreEqual(expectedResult, result);
+        }
+
+        [Test]
         [TestCase("10,2", 8)]
         [TestCase("-10,2", -12)]
         public void Subtract_WithValidString_ShouldReturnExpectedValue(string input, int expectedResult)
