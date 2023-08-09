@@ -12,14 +12,16 @@ namespace UnitTests
     public class CalculatorTests
     {
         private Calculator calculator;
+
+        [SetUp]
         public void SetUp()
         {
             calculator = new Calculator();
         }
 
         [Test]
-        [TestCase("-5,3", -8)]
-        [TestCase("5,3", 2)]
+        [TestCase("10,2", 8)]
+        [TestCase("-10,2", -12)]
         public void Subtract_WithValidString_ShouldReturnExpectedValue(string input, int expectedResult)
         {
             int result = calculator.Subtract(input);
